@@ -17,7 +17,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class CustomerController {
     private final CustomerDao customerDao;
     @GetMapping("/customer/save-customer")
-    public String createCustomer(@ModelAttribute Customer customer){
+    public String createCustomer(Model model){
+        model.addAttribute("customer",new Customer());
         return "customerForm";
     }
     @PostMapping("/customer/save-customer")
@@ -37,6 +38,6 @@ public class CustomerController {
     @GetMapping("/customer/delete")
     public String deleteCustomer(@RequestParam("id")int id){
         customerDao.deleteById(id);
-        return "redirect:/customer/list-customer";
+        return "redirect:/customer/list-customers";
     }
 }
