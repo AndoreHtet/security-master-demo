@@ -24,10 +24,10 @@ xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
                 <a th:href="@{/customer/list-customers}" class="nav-link">Customers</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">Departments</a>
+                <a th:href="@{/department/list-departments}" class="nav-link">Departments</a>
             </li>
             <li class="nav-item">
-                <a href="#" class="nav-link">Employees</a>
+                <a th:href="@{/employee/list-employees}" class="nav-link">Employees</a>
             </li>
         </ul>
         <div sec:authorize="!isAuthenticated()">

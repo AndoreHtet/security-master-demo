@@ -23,7 +23,11 @@ public class SecurityConfig {
             c.requestMatchers("/static/**","/").permitAll()
             .requestMatchers("/customer/list-customers")
                     .hasAnyRole("CUSTOMER_READ","SUPER_ADMIN")
-                    .requestMatchers("/customer/**")
+                    .requestMatchers("/employee/**")
+                    .hasAnyRole("SUPER_ADMIN","EMPLOYEE_ADMIN")
+                    .requestMatchers("/department/list-departments","/department/create-departments")
+                    .hasAnyRole("DEPARTMENT_READ","DEPARTMENT_WRITE","SUPER_ADMIN")
+                    .requestMatchers("/customer/**","department/**")
                     .hasRole("SUPER_ADMIN")
                     .anyRequest()
                     .authenticated();
